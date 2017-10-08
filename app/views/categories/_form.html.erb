@@ -1,0 +1,14 @@
+<%= form_for @category, :remote => true do |f| %> 
+    <div>
+      <% Category.all.each do |category| %>
+        <%= check_box_tag "[category_names][]", category.name %>
+        <%= category.name %>
+      <% end %>
+    </div>
+  <%= hidden_field_tag :color, @color %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div id="div2"> </div>

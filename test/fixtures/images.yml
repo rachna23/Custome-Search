@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  DateTime: 2017-10-07 17:41:14
+  color: MyString
+  response: 2017-10-07 17:41:14
+
+two:
+  DateTime: 2017-10-07 17:41:14
+  color: MyString
+  response: 2017-10-07 17:41:14

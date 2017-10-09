@@ -1,11 +1,7 @@
 class CategoriesController < ApplicationController
-
- def new
- 	@category = Category.new
- end	
+before_action :find_color
 
  def index
- 	@color = params["color"]
  	@category = Category.new
  	respond_to do |format|
     format.js
@@ -13,23 +9,40 @@ class CategoriesController < ApplicationController
  end	
 
  def create
- 	@color = params["color"]
-  @category = Category.find(params['category']['id'])
- 	search = @category.name+' '+@color
-  results = GoogleCustomSearchApi.search(search, {"searchType" => "image"})
-  @images = []
-  results["items"].first(5).each do |item|
-  	img = @category.images.create(image: item["image"]["thumbnailLink"])
-  	@images << img
-  end
-  @images
+  @category = Category.find(params['category']['id']) rescue nil
+  if @color.present? && @category.present?
+    custome_search = CustomSearch.new
+    @images = custome_search.perform(@category,@color)
+    flash[:success] = "Welcome to the Sample App!"
+    respond_to do |format|
+      format.js
+    end
+  else
+    @images = []
+    flash[:error] = "Please select category"
+  end  
+ end	
+
+ def search_again
+  color = params['color']
+  noun = params['noun']
+  @category = Category.find_by_name(noun) rescue nil
+  custome_search = CustomSearch.new
+  @images = custome_search.perform(@category,color)
   respond_to do |format|
     format.js
   end
- end	
+ end 
+
 
  def history
- 	@images = Image.all
+  @histories = History.all
  end	
+
+ private
+
+ def find_color
+    @color = params["color"]
+ end 
 
 end	

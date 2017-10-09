@@ -1,14 +1,18 @@
-<h2> Select category </h2>
-<%= form_for @category, :remote => true do |f| %> 
-  <% Category.all.each do |category| %>
-    <%= f.radio_button :id, category.id %>
-    <%= f.label :name, category.name %>
+<div class="panel panel-default">
+  <div class="panel-heading"> <h4>Select category <small>click on radio button ..</small></h4></div>
+  <div class="panel-body">
+  <%= form_for @category, :remote => true do |f| %> 
+    <% Category.all.each do |category| %>
+      <%= f.radio_button :id, category.id,  checked: Category.first %>
+      <%=  category.name %>
+    <% end %>
+    <%= hidden_field_tag :color, @color %> <br/>
+    <div class="actions">
+      <%= f.submit "Search result", class: 'btn btn-primary' %>
+    </div>
   <% end %>
-  <%= hidden_field_tag :color, @color %>
-  <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
   </div>
-<% end %>
+</div>
 
 
 

@@ -1,4 +1,4 @@
-<% if @images.present? %>
+<% if @histories.present? %>
   <table id="runner" class="display" cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped">    
       <thead>
         <tr>
@@ -7,23 +7,25 @@
           <th> <%= "Noun" %> </th>
           <th> <%= "Color" %> </th>
           <th> <%= "Http response ms" %> </th>
+          <th> <%= "Search again" %> </th>
         </tr>
       </thead>
 
       <tbody>
-        <% @images.each do |image| %>
+        <% @histories.each do |history| %>
        <tr>
-        <td> <%= image.DateTime ? image.DateTime : "NA" %> </td>
-        <td> <%= image.DateTime ? image.DateTime : "NA" %> </td>
-        <td> <%= image.image_file_name ? image.image_file_name : "NA" %> </td>
-        <td> <%= image.color ? image.color : "NA" %> </td>
-        <td> <%= image.response ? image.response : "NA" %> </td>
+        <td> <%= date(history) %> </td>
+        <td> <%= time(history) %> </td>
+        <td> <%= history.noun %> </td>
+        <td> <%= history.color ? history.color : "NA" %> </td>
+        <td> <%= history.response ? history.response : "NA" %> </td>
+        <td> <%= link_to "Search", search_again_categories_path(noun:history.noun,color:history.color),remote:true %> </td>
       </tr>
         <% end %>
       </tbody>
     </table>
 <% end %>
-
+<div id="div3"> </div> 
 <script>
 $(document).ready(function() {
     $('#runner').dataTable( {

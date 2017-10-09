@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  *= bootstrap_and_overrides.css.less
+ *= thumbnail-gallery.css
  */
 
-.myHalfCol .col-lg-6{width:48%; margin:0 1%;}
-.col-lg-7 {border-right-style: solid}
+
+.set-space{margin-right: 40px;}
+
+
+.navbar-inverse{margin-top: -4%;}

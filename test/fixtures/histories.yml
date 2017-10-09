@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  response: 1.5
+  color: MyString
+  noun: MyString
+
+two:
+  response: 1.5
+  color: MyString
+  noun: MyString

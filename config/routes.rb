@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :categories do
   	collection do
       get :history
+      get :search_again
     end
   end	
   root :to => 'home#index'

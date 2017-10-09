@@ -1,14 +1,14 @@
+<h2> Select category </h2>
 <%= form_for @category, :remote => true do |f| %> 
-    <div>
-      <% Category.all.each do |category| %>
-        <%= check_box_tag "[category_names][]", category.name %>
-        <%= category.name %>
-      <% end %>
-    </div>
+  <% Category.all.each do |category| %>
+    <%= f.radio_button :id, category.id %>
+    <%= f.label :name, category.name %>
+  <% end %>
   <%= hidden_field_tag :color, @color %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
 
-<div id="div2"> </div>
+
+

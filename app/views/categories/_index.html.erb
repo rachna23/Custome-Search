@@ -1,1 +1,18 @@
-<%= images.count %>
+  <div class="container">
+
+      <h1 class="my-4 text-center text-lg-left">Search result</h1>
+
+      <div class="row text-center text-lg-left">
+      <% images.each do |image| %>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#{image.image.url}" class="d-block mb-4 h-100">
+            <%#= image_tag image.image,class: 'img-fluid img-thumbnail' %>
+            
+            <%=link_to image_tag(image.image), image.image.url(:original),class: 'img-fluid img-thumbnail' ,:popup=>['original_image', 'height=700,width=900'] %>
+          </a>
+        </div>
+      <% end %> 
+
+
+    </div
+

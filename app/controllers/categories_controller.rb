@@ -14,14 +14,12 @@ class CategoriesController < ApplicationController
 
  def create
  	@color = params["color"]
- 	@categories = params["category_names"]
- 	search = @categories.join(" ") +' '+@color
+  @category = Category.find(params['category']['id'])
+ 	search = @category.name+' '+@color
   results = GoogleCustomSearchApi.search(search, {"searchType" => "image"})
-  name = params[:category_names].first
-  @category = Category.find_by_name(name)
   @images = []
   results["items"].first(5).each do |item|
-  	img = @category.images.create(image: item["link"])
+  	img = @category.images.create(image: item["image"]["thumbnailLink"])
   	@images << img
   end
   @images

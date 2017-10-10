@@ -13,4 +13,7 @@
 
  <br/>
   <div class="alert alert-warning" role="alert"><%= "Please select the category" %></div>
+  <% if flash[:notice] %>
+    <div class="alert alert-warning" role="alert"><%= flash[:notice] %></div>
+  <% end %>
 <% end %>  

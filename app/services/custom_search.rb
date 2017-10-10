@@ -1,11 +1,14 @@
 class CustomSearch
   
-  def perform(category,color)
-  	search = category.name+' '+color
-  	results = GoogleCustomSearchApi.search(search, {"searchType" => "image"})
+  def perform(category,color,results)
     History.create(history_hash(category,color,results))
-    @images = results["items"].first(5).collect{|im| im["image"]["thumbnailLink"]}
+    results["items"].first(5).collect{|im| im["image"]["thumbnailLink"]}
   end	
+
+  def find_response(category,color)
+    search = category.name+' '+color
+    GoogleCustomSearchApi.search(search, {"searchType" => "image"})
+  end  
 
   def history_hash(category,color,results)
   	{

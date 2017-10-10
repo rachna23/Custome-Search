@@ -44,6 +44,14 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+
+group :test do
+  gem 'fixture_builder'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
 gem "google_custom_search_api"
 gem "paperclip", "~> 5.0.0"
 

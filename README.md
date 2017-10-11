@@ -5,20 +5,22 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: ruby 2.3.3
 
-* System dependencies
+* Rails version: 5.1.4
 
-* Configuration
+* Database: Mysql
 
-* Database creation
+* Steps for running the project
+1. Run: bundle install
+2. Run: rake db:create
+3. Run: rake db:migrate
+4. Run: rake db:seed
+5. Start rails server
 
-* Database initialization
+* Click on the image once the server is running. You will get the category list, select category. You will get top 5 images related to that category and color.
 
-* How to run the test suite
+* The user could select multiple images and multiple categories, but currently I am using one image and one category selection.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...

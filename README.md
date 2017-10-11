@@ -17,6 +17,7 @@ Things you may want to cover:
 3. Run: rake db:migrate
 4. Run: rake db:seed
 5. Start rails server
+6. For running test cases you can run bundle exec rspec
 
 * Click on the image once the server is running. You will get the category list, select category. You will get top 5 images related to that category and color.
 

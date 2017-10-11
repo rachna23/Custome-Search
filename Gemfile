@@ -52,8 +52,8 @@ group :test do
   gem 'factory_girl_rails'
 end
 
-gem "google_custom_search_api"
-gem "paperclip", "~> 5.0.0"
+gem 'google_custom_search_api'
+gem 'paperclip', "~> 5.0.0"
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -65,8 +65,9 @@ group :development do
   gem 'awesome_print'
 end
 group :assets do
-  gem "twitter-bootstrap-rails" 
+  gem 'twitter-bootstrap-rails' 
   gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rubocop', require: false
